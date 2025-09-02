@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
+  <link rel="stylesheet" href="styles/index.css">
+  <title>Multi-step form</title>
+</head>
+<body>
+
+  <main>
+    <div class="container">
+      <div class="left-page">
+        <img src="assets/images/bg-sidebar-desktop.svg" alt="" class="desktop-bg">
+        <img src="assets/images/bg-sidebar-mobile.svg" alt="" class="mobile-sidebg">
+        <div class="left-page-nav">
+          <div class="page-1-nav">
+            <div id="active-nav">1</div>
+            <div class="steps">
+              <p class="step">STEP 1</p>
+              <p class="detail">YOUR INFO</p>
+            </div>
+          </div>
+
+          <div class="page-2-nav">
+            <div>2</div>
+            <div class="steps">
+              <p class="step">STEP 2</p>
+              <p class="detail">SELECT PLAN</p>
+            </div>
+          </div>
+
+          <div class="page-3-nav">
+            <div>3</div>
+            <div class="steps">
+              <p class="step">STEP 3</p>
+              <p class="detail">ADD-ONS</p>
+            </div>
+          </div>
+
+          <div class="page-4-nav">
+            <div>4</div>
+            <div class="steps">
+              <p class="step">STEP 4</p>
+              <p class="detail">SUMMARY</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="right-page">
+        <div class="page-1">
+          <form action="" method="get">
+            <div class="info">
+              <h2>Personal info</h2>
+              <p>Please provide your name, email address, and phone number.</p>
+            </div>      
+            <div class="form" role="form">
+              <div class="input-item">
+                <label for="username">Name</label>
+                <input type="text" placeholder="e.g. Stephen King" required>
+              </div>
+              <div class="input-item">
+                <label for="Email Address">Email Address</label>
+                <input type="email" placeholder="e.g. stephenking@lorem.com" required>
+              </div>
+              <div class="input-item">
+                <label for="username">Phone Number</label>
+                <input type="text" placeholder="e.g. +1 234 567 890" required>
+              </div>
+            </div>
+          </form>
+          <div class="nav">
+            <button class="prev">Go back</button>
+            <button class="next" id="1">Next Step</button>
+          </div>
+        </div>
+
+        <div class="page-2" style="display: none;">
+          <form action="" method="get">
+            <div class="info">
+              <h2>Select your plan</h2>
+              <p>You have the option of monthly or yearly billing.</p>
+            </div>
+            <div class="item-container">
+              <div class="form-items" role="form">
+                <div class="items active" tabindex="0" role="button">
+                  <img src="assets/images/icon-arcade.svg" alt="<">
+                  <div class="dets">
+                    <p class="plan">Arcade</p>
+                    <p id="pay"></p>
+                    <p class="extra" style="display: none;">2 months free</p>
+                  </div>
+                </div>
+                <div class="items" tabindex="0" role="button">
+                  <img src="assets/images/icon-advanced.svg" alt="<">
+                  <div class="dets">
+                    <p class="plan">Advanced</p>
+                    <p id="pay"></p>
+                    <p class="extra" style="display: none;">2 months free</p>
+                  </div>
+                </div>
+                <div class="items" tabindex="0" role="button">
+                  <img src="assets/images/icon-pro.svg" alt="<">
+                  <div class="dets">
+                    <p class="plan">Pro</p>
+                    <p id="pay"></p>
+                    <p class="extra" style="display: none;">2 months free</p>
+                  </div>
+                </div>
+              </div>
+              <div class="toggle-bar">
+                <p class="month">Monthly</p>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" focusable="true" style="display: flex; align-items: center; justify-content: flex-end; box-sizing: border-box;">
+                  <rect class="rect" tabindex="0" width="20" height="10" rx="5" x="2" y="8" fill="#02295a" style="outline: none;"/>
+                  <circle cx="7" cy="13" r="3" fill="white"/>
+                </svg>
+                <p>Yearly</p>
+            </div>
+            </div>
+          </form>
+          <div class="nav">
+            <button class="prev">Go back</button>
+            <button class="next" id="2">Next Step</button>
+          </div>
+        </div>
+
+        <div class="page-3" style="display: none;">
+          <form action="" method="get">
+            <div class="info">
+              <h2>Pick add-ons</h2>
+              <p>Add-ons enhance your gaming experience.</p>
+            </div>
+            <div class="item-container p4">
+              <div class="check-item active" id="Online services"  value="Online services" role="form">
+                <input type="checkbox" name="online" id="online" checked>
+                <div class="version">
+                  <div class="labels">
+                    <p class="bold">Online services</p>
+                    <p>Access to multiplayer games</p>
+                  </div>
+                  <div class="fee">
+                    +$1/mo
+                  </div>
+                </div>
+              </div>
+              <div class="check-item active" id="Larger storage"  value="Larger storage" role="form">
+                <input type="checkbox" name="storage" id="storage" checked>
+                <div class="version">
+                  <div class="labels">
+                    <p class="bold">Larger storage</p>
+                    <p>Extra 1TB of cloud save</p>
+                  </div>
+                  <div class="fee">
+                    +$2/mo
+                  </div>
+                </div>
+              </div>
+              <div class="check-item" id="Customizable profile" value="Customizable profile" role="form">
+                <input type="checkbox" name="profile" id="profile">
+                <div class="version">
+                  <div class="labels">
+                    <p class="bold">Customizable profile</p>
+                    <p>Custom theme on your profile</p>
+                  </div>
+                  <div class="fee">
+                    +$2/mo
+                  </div>
+                </div>
+              </div>
+            </div>
+          </form>
+          <div class="nav">
+            <button class="prev">Go back</button>
+            <button class="next" id="3">Next Step</button>
+          </div>
+        </div>
+
+        <div class="page-4" style="display: none;">
+          <form action="" method="get">
+            <div class="info">
+              <h2>Finishing up</h2>
+              <p>Double-check everything looks OK before cofirming.</p>
+            </div>
+            <div class="item-container">
+              <div class="total-items" role="form">
+                <div class="edit-item">
+                  <div>
+                    <p class="bold" id="js-plan-choice"></p>
+                    <p class="change" role="button" tabindex="0" aria-roledescription=" Button to reset the inputs made to the form fields.">Change</p>
+                  </div>
+                  <p class="bold" id="plan-price-js"></p>
+                </div>
+                <div class="form-array-container">
+                </div>
+              </div>
+              <div class="total-bar">
+                <p id="total-ison"></p>
+                <h3 id="total"></h3>
+              </div>
+            </div>
+          </form>
+          <div class="nav">
+            <button class="prev">Go back</button>
+            <button class="next" id="4">Confirm</button>
+          </div> 
+        </div> 
+
+        <div class="page-5" style="display: none;">
+          <div>
+            <img src="assets/images/icon-thank-you.svg" alt="<">
+          </div>
+          <h2>Thank you!</h2>
+          <p class="final-text">Thanks for confirming your subscription! We hope you have the fun using our platform. If you ever need support, please feel free to email us: support@teamvicgaming.com</p>
+        </div> 
+      </div>
+    </div>
+  </main> 
+
+  <script src="form.js"></script> 
+</body>
+</html>
