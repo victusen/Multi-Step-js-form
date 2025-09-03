@@ -1,5 +1,5 @@
 
-// I am Vic. A teacher/tutor, a designer and Web Developer. 
+// I am Vic. A teacher/tutor, a designer and Web Developer.
 
 // Let the Real work Begin. 
 
@@ -53,7 +53,8 @@ const checkElements = document.querySelectorAll('.check-item');
 let activeCheckbox = document.querySelectorAll('.check-item.active');
 
 const checkBox = document.querySelectorAll('input[type="checkbox"]');
-const inputs = document.querySelectorAll('input[type="text"]');
+const textInputs = document.querySelectorAll('input[type="text"]');
+const mailInput = document.querySelector('input[type="email"]');
 
 const topNavsArray = Array.from(topNavs); 
 const nextBtnArray = Array.from(nextBtn); 
@@ -70,28 +71,36 @@ let arrayPriceValue;
 
 let orderId = 0;
 
-// The real work Begins: To toggle the navs and handle the next/Prev buttons.
-for(i = 0; i < nextBtnArray.length; i++) {
-  const button = nextBtnArray[i];
+// The real work Begins: To toggle the navs and handle the next/Prev buttons. 
+
+nextBtnArray.forEach(button => {
   button.addEventListener('click', () => {
 
-    const parentPage = button.closest('.right-page > div');
-    parentPage.style.display = 'none';
+    for (let i = 0; i < textInputs.length; i++) {
+      const text = textInputs[i];
+      if (mailInput.value === '' || text.value === '') {
+        alert('Kindly fill in the form fields to proceed.');
+        return;
+      }
+    }
+    
+    const parentPage = button.closest('.right-page > div'); 
+    parentPage.style.display = 'none'; 
 
-    const nextPage = parentPage.nextElementSibling;
-    nextPage.style.display = 'flex';
+    const nextPage = parentPage.nextElementSibling; 
+    nextPage.style.display = 'flex'; 
 
-    currentPage = (nextBtnArray.indexOf(button) + 2);
+    currentPage = (nextBtnArray.indexOf(button) + 2); 
 
     toggleTopLeftNavs(); 
 
-    console.log(`Page${currentPage} is on.`);
+    console.log(`Page${currentPage} is on.`); 
 
-    if (pages[pages.length - 1].style.display === 'flex') {
-      alert(`Thanks for viewing Vic's project. Kindly click the ok button now.`);
-    }
-  });
-}
+    if (pages[pages.length - 1].style.display === 'flex') { 
+      alert(`Thanks for viewing Vic's project. Kindly click the ok button now.`); 
+    } 
+  }); 
+}) 
 for(i = 0; i < prevBtnArray.length; i++) {
   const button = prevBtnArray[i];
   button.addEventListener('click', () => {
@@ -365,3 +374,5 @@ function updateAddOnsDropdown() {
     total.innerHTML = `$${checkValueTotal + activeElement.value}/yr`;
   }
 }
+
+
