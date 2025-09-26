@@ -61,6 +61,17 @@ let activeCheckArray = Array.from(activeCheckbox);
 
 const orderContainer = document.querySelector('.form-array-container');
 
+
+changeButton.addEventListener('click', () => {
+  pages.forEach(page => {
+    page.style.display = 'none';
+  })
+  currentPage = 2;
+  pagesArray[currentPage - 1].style.display = 'flex';
+
+  toggleTopLeftNavs();
+});
+
 let activeCheckParent;
 let arrayPriceValue;
 
