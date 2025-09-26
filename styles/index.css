@@ -142,6 +142,10 @@ main {
       font-family: "Ubuntu-medium";
         letter-spacing: 1.2px;
         color: var(--Blue-950);
+      } .info p {
+        width: 85%;
+        line-height: 1.4;
+        font-size: 15px;
       }
 
 .form, .item-container {
@@ -382,8 +386,8 @@ p {
   font-family: "Ubuntu-medium";
 }
 ::placeholder {
-  font-family: "Ubuntu-medium";
-  font-size: 13px;
+  font-family: "Ubuntu-regular";
+  font-size: 15px;
   color: var(--Grey-500);
 }
 label {
@@ -493,7 +497,7 @@ label {
 
   label {
     font-family: "Ubuntu-regular";
-    font-size: 14px;
+    font-size: 15px;
     color: hsl(213, 96%, 27%);;
   }
   .input-item input {
@@ -557,12 +561,14 @@ label {
     top: 62px;
     width: 100%;
     margin: auto;
-    
   } 
+  .page-1 {
+    padding-bottom: 50px;
+  }
   .right-page > div {
-    width: 90%;
+    width: 100%;
     height: 82vh;
-    padding: 0 40px;
+    padding: 0 20px;
   }
   
   .left-page-nav div .steps {
@@ -573,7 +579,9 @@ label {
     /* position: relative; */
     border-radius: 5px;
     box-sizing: border-box;
-    padding: 30px;
+    padding: 20px;
+    padding-bottom: 40px;
+    padding-top: 30px;
     width: 100%;
     /* height: 80%; */
     background-color: rgba(255, 255, 255);
@@ -581,6 +589,9 @@ label {
   }
   .form, .item-container {
     width: 100%;
+  }
+  .info h2 {
+    font-size: 30px;
   }
   .form-items {
     flex-direction: column;
@@ -605,6 +616,10 @@ label {
   .input-item input {
     min-width: 0;
     max-width: 100%;
+    height: 50px;
+  }
+  .input-item input:nth-child(3) {
+    margin-bottom: 50px;
   }
   .right-page .nav  {
     box-sizing: border-box;

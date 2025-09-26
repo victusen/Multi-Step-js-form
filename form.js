@@ -192,6 +192,7 @@ function updateMonthlyPrice() {
     if (itemsArray.indexOf(activeElement) === i) {
       planPrice.innerHTML = `$${items[i].value}/mo`;
       // console.log(planPrice); 
+      console.log(item.value);
     }
     // console.log(item.value); 
     itemChild.innerHTML = `$${monthly[i]} /mo`;
