@@ -169,7 +169,6 @@ main {
     border: 1.5px solid var(--Purple-600);
   }
 
-
 .page-4 .total-items {
   display: flex;
   flex-direction: column;
@@ -434,7 +433,11 @@ label {
 } .order:first-child {
   margin-bottom: 0;
 }
-
+.error {
+  color: var(--Red-500);
+  font-size: 12px;
+  margin-top: -8px;
+}
 .final-text {
   box-sizing: border-box;
   width: 100%;
@@ -442,12 +445,9 @@ label {
   padding-bottom: 20px;
   margin: 0 auto;
 }
-/* 
-@media screen and (max-width: 1200px) {
-  .right-page div {
-    width: 700px;
-  }
-}  */
+.hidden {
+  display: none;
+}
 
 @media screen and (max-width: 1150px) {
   .container {
@@ -482,9 +482,28 @@ label {
     max-width: 400px;
     min-width: 0;
   }
-}
+} 
 
 @media screen and (max-width: 600px) {
+  p {
+    color: var(--Grey-500);
+    font-size: 15px;
+    font-family: "Ubuntu-regular";
+  }
+
+  label {
+    font-family: "Ubuntu-regular";
+    font-size: 14px;
+    color: hsl(213, 96%, 27%);;
+  }
+  .input-item input {
+    height: 40px;
+    padding: 12px;
+    border-radius: 4px;
+    font-size: 16px;  
+    font-family: "Ubuntu-regular";
+    outline: none;
+  }
 
   main {
     width: 100%;

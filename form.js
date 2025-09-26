@@ -1,8 +1,3 @@
-
-// I am Vic. A teacher/tutor, a designer and Web Developer.
-
-// Let the Real work Begin. 
-
 // Local Variables 
 let arcadeMonthly = 9;
 let advancedMonthly = 12;
@@ -20,7 +15,6 @@ let profileYearly = 20;
 
 const monthly = [arcadeMonthly, advancedMonthly, proMonthly];
 const yearly = [arcadeYearly, advancedYearly, proYearly];
-
 const monthly2 = [onlineMonthly, storageMonthly, profileMonthly];
 const yearly2 = [onlineYearly, storageYearly, profileYearly];
 
@@ -53,8 +47,9 @@ const checkElements = document.querySelectorAll('.check-item');
 let activeCheckbox = document.querySelectorAll('.check-item.active');
 
 const checkBox = document.querySelectorAll('input[type="checkbox"]');
-const textInputs = document.querySelectorAll('input[type="text"]');
-const mailInput = document.querySelector('input[type="email"]');
+const errors = document.querySelectorAll('.error');
+
+const inputs = document.querySelectorAll('input');
 
 const topNavsArray = Array.from(topNavs); 
 const nextBtnArray = Array.from(nextBtn); 
@@ -71,18 +66,34 @@ let arrayPriceValue;
 
 let orderId = 0;
 
-// The real work Begins: To toggle the navs and handle the next/Prev buttons. 
+inputs.forEach(input => {
+  input.addEventListener('focus', () => {
+    const errorNote = input.nextElementSibling;
+    errorNote.classList.add('hidden'); 
+    input.style.border = '';
+  })
+});
 
+function validateInput() {
+  let x = 0;
+  inputs.forEach(input => {
+    if (input.value === "" || input.value === " ") { 
+      const errorNote = input.nextElementSibling;
+      errorNote.classList.remove('hidden'); 
+      input.style.border = "1px solid red";
+      x = 5; 
+    } 
+  }); 
+  return x;
+};
+
+// The real work Begins: To toggle the navs and handle the next/Prev buttons. 
 nextBtnArray.forEach(button => {
   button.addEventListener('click', () => {
 
-    for (let i = 0; i < textInputs.length; i++) {
-      const text = textInputs[i];
-      if (mailInput.value === '' || text.value === '') {
-        alert('Kindly fill in the form fields to proceed.');
-        return;
-      }
-    }
+    if (validateInput() === 5) {
+      return;
+    }    
     
     const parentPage = button.closest('.right-page > div'); 
     parentPage.style.display = 'none'; 
@@ -119,7 +130,6 @@ for(i = 0; i < prevBtnArray.length; i++) {
   });
 }
 function toggleTopLeftNavs() {
-
   topLeftDiv = topNavsArray[currentPage - 1];
   topNavs.forEach(nav => {
     nav.querySelector('div').id = '';
@@ -171,7 +181,6 @@ function checkSVGPosition() {
 
   console.log(isOn); 
 }
-
 checkSVGPosition();
 
 function updateMonthlyPrice() {
@@ -273,7 +282,6 @@ function updateClickedItem() {
     
   });
 }
-
 updateClickedItem();
 
 function updateCheckedItems() {
@@ -322,23 +330,8 @@ checkBox.forEach(box => {
   });
 });
 
-// To edit the form again 
-changeButton.addEventListener('click', () => {
-  pages.forEach(page => {
-    page.style.display = 'none';
-  })
-
-  currentPage = 2;
-  pagesArray[currentPage - 1].style.display = 'flex';
-
-  toggleTopLeftNavs();
-});
-
 function updateAddOnsDropdown() {
   console.log(activeCheckArray);  
-
-  let orderDivs;
-
   orderContainer.innerHTML = '';
 
   let checkValueTotal = 0;
@@ -359,7 +352,6 @@ function updateAddOnsDropdown() {
     orderDiv.innerHTML = `<p>${element.id}</p><p class="bold" id="service-price">${arrayPriceValue}</p>`; 
 
     checkValueTotal = checkValueTotal + element.value;
-    orderDivs = orderDiv;
     orderContainer.appendChild(orderDiv);
     // console.log(orderDiv);
   }
@@ -374,5 +366,3 @@ function updateAddOnsDropdown() {
     total.innerHTML = `$${checkValueTotal + activeElement.value}/yr`;
   }
 }
-
-
