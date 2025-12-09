@@ -263,6 +263,7 @@ main {
   font-weight: 600;
   color: var(--Blue-950);
 } .items div p:nth-child(2), .toggle-bar p, .extra {
+  -webkit-user-select: none;
   user-select: none;
   font-size: 12px;
 } .toggle-bar {
@@ -358,12 +359,13 @@ main {
   /* justify-content: flex-end; */
 } .right-page .page-1 .nav button:first-child {
     visibility: hidden;
-  }.prev {
+    }.prev {
       padding: 11px 18px;
       border: none;
       color: var(--Grey-500);
       background-color: transparent;
       cursor: pointer;
+      -webkit-user-select: none;
       user-select: none;
       font-family: "Ubuntu-medium";
       font-size: 13px;
@@ -376,6 +378,7 @@ main {
         color: var(--White);
         background-color: var(--Blue-950);
         cursor: pointer;
+        -webkit-user-select: none;
         user-select: none;
       }
 
