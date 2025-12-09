@@ -55,21 +55,21 @@
             <div class="info">
               <h2>Personal info</h2>
               <p>Please provide your name, email address, and phone number.</p>
-            </div>      
-            <div class="form" role="form">
+            </div>     
+            <div class="form" style="gap: 4px" role="form">
               <div class="input-item">
                 <label for="username">Name</label>
-                <input type="text" placeholder="e.g. Stephen King" required>
+                <input type="text" id="username" placeholder="e.g. Stephen King" autocomplete="on" required>
                 <p class="error hidden">Please input into this field</p>
               </div>
               <div class="input-item">
-                <label for="Email Address">Email Address</label>
-                <input type="email" placeholder="e.g. stephenking@lorem.com" required>
+                <label for="email">Email Address</label>
+                <input type="email" id="email" placeholder="e.g. stephenking@lorem.com" autocomplete="on" required>
                 <p class="error hidden">Please input into this field</p>
               </div>
               <div class="input-item">
-                <label for="username">Phone Number</label>
-                <input type="text" placeholder="e.g. +1 234 567 890" required>
+                <label for="phone">Phone Number</label>
+                <input type="text" id="phone" placeholder="e.g. +1 234 567 890" autocomplete="on" required>
                 <p class="error hidden">Please input into this field</p>
               </div>
             </div>
@@ -221,6 +221,6 @@
     </div>
   </main> 
 
-  <script src="form.js"></script> 
+  <script type="module" src="form.js"></script> 
 </body>
 </html>

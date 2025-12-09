@@ -1,3 +1,42 @@
+
+// Import the functions you need from the SDKs you need
+import { initializeApp } from "https://www.gstatic.com/firebasejs/12.6.0/firebase-app.js";
+import { getFirestore, collection, doc, addDoc, setDoc } from "https://www.gstatic.com/firebasejs/12.6.0/firebase-firestore.js";
+
+// Your web app's Firebase configuration
+const firebaseConfig = {
+apiKey: "AIzaSyC0Va5qEls9IzvRRslqJSxqOnHka6unv_w",
+authDomain: "my-database-10.firebaseapp.com",
+projectId: "my-database-10",
+storageBucket: "my-database-10.firebasestorage.app",
+messagingSenderId: "421882545076",
+appId: "1:421882545076:web:f78f95e9bbebf1d94a68e1",
+measurementId: "G-FSQZWE45LY"
+};
+
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
+
+async function submitForm() {
+    const name = document.getElementById('username').value;
+    const email = document.getElementById('email').value;
+    const phone = document.getElementById('phone').value;
+
+    const collectionRef = collection(db, "users");
+    try {
+        const docRef = await addDoc(collectionRef, {
+            "name": name,
+            "email": email,
+            "phone": phone
+        });
+        console.log("The database has been updated with new object, ID is: ", docRef.id);
+    } catch (err) {
+        console.error("error is: " + err)
+    }
+}
+
+
 // Local Variables 
 let arcadeMonthly = 9;
 let advancedMonthly = 12;
@@ -72,6 +111,7 @@ changeButton.addEventListener('click', () => {
   toggleTopLeftNavs();
 });
 
+let currentPage = 1;
 let activeCheckParent;
 let arrayPriceValue;
 
@@ -104,7 +144,9 @@ nextBtnArray.forEach(button => {
 
     if (validateInput() === 5) {
       return;
-    }    
+    } 
+    
+    submitForm();
     
     const parentPage = button.closest('.right-page > div'); 
     parentPage.style.display = 'none'; 
@@ -123,7 +165,7 @@ nextBtnArray.forEach(button => {
     } 
   }); 
 }) 
-for(i = 0; i < prevBtnArray.length; i++) {
+for(let i = 0; i < prevBtnArray.length; i++) {
   const button = prevBtnArray[i];
   button.addEventListener('click', () => {
     
@@ -141,7 +183,7 @@ for(i = 0; i < prevBtnArray.length; i++) {
   });
 }
 function toggleTopLeftNavs() {
-  topLeftDiv = topNavsArray[currentPage - 1];
+  let topLeftDiv = topNavsArray[currentPage - 1];
   topNavs.forEach(nav => {
     nav.querySelector('div').id = '';
   });

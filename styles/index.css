@@ -133,7 +133,7 @@ main {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    gap: 25px;
+    gap: 20px;
   } .info {
       display: flex;
       flex-direction: column;
@@ -158,7 +158,7 @@ main {
 } .right-page .form .input-item {
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 5px;
   } .input-item input {
     box-sizing: border-box;
     height: 40px;
